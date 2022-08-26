@@ -2,7 +2,7 @@
 
 # projeto orientado por meio do vídeo localizado no endereço
 # https://www.youtube.com/watch?v=4fWWn2Pe2Mk 
-# último stop 13:08
+# último stop 20:00
 
 # notas da modelagem do banco de daddos
 
