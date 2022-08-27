@@ -1,6 +1,11 @@
 # projectpos
 # this is simple project in my work
 
+# packages for project in app.js
+# npm install express dotenv express-handlebars body-parser mysql
+# npm install --save-dev nodemon
+
+# database modeling
 create table tabprinters(id integer not null auto_increment
 						,namepri varchar(100) not null
                         ,model varchar(50) not null
@@ -32,18 +37,20 @@ insert into tabcardspos(id
                        ,numboxfisic
                        ,numboxlogic
                        ,valuepos
+                       ,id_cardflag
                        ,dateoccurrence
                        ,notes) values(default
                                      ,'Nazaré'
                                      ,2233
                                      ,3737
                                      ,283.91
+                                     ,2
                                      ,current_timestamp()
                                      ,'Este é apenas um teste de registro das informações');
 
-select * from cardflag; 
+select * from tabcardsflags; 
 
-INSERT INTO cardflag(id, nameflag) VALUES(DEFAULT, 'Visa')
+INSERT INTO tabcardsflags(id, nameflag) VALUES(DEFAULT, 'Visa')
                                         ,(DEFAULT, 'Mastercard')
                                         ,(DEFAULT, 'Diners')
                                         ,(DEFAULT, 'American Express')
@@ -51,10 +58,12 @@ INSERT INTO cardflag(id, nameflag) VALUES(DEFAULT, 'Visa')
                                         ,(DEFAULT, 'CrediShop')
                                         ,(DEFAULT, 'Tricard');
 
-create table cardflag(id INTEGER NOT NULL AUTO_INCREMENT
-					,nameflag VARCHAR(20)
-                    ,CONSTRAINT PRIMARY KEY(id));
+create table tabcardsflags(id INTEGER NOT NULL AUTO_INCREMENT
+					                ,nameflag VARCHAR(20)
+                          ,CONSTRAINT PRIMARY KEY(id));
+
 select * from tabcardspos;
+
 insert into tabcardspos(id
                        ,nameoperator
                        ,numboxfisic
@@ -106,24 +115,24 @@ insert into tabcardspos(id
 drop table tabcardspos;
                                      
 create table tabcardspos(id integer not null auto_increment
-  						,nameoperator varchar(50) not null
-						,numboxfisic char(4)
+  						          ,nameoperator varchar(50) not null
+						            ,numboxfisic char(4)
                         ,numboxlogic char(4)
                         ,valuepos decimal(6, 2) not null 
-                        ,id_cardflag int
-					    ,dateoccurrence timestamp not null default current_timestamp
-						,notes text
-                        ,constraint foreign key(id_cardflag) references cardflag(id)
-						,constraint primary key(id)) default charset = utf8mb4;
+                        ,id_tabcardsflags int
+					              ,dateoccurrence timestamp not null default current_timestamp
+						            ,notes text
+                        ,constraint foreign key(id_tabcardsflags) references tabcardsflags(id)
+						            ,constraint primary key(id)) default charset = utf8mb4;
                         
 ------------ old script -------------------------------------------                                     
 create table tabcardspos(id integer not null auto_increment
-						,nameoperator varchar(100) not null
-					    ,numboxfisical integer(4)
+					            	,nameoperator varchar(100) not null
+					              ,numboxfisical integer(4)
                         ,valuepos decimal(6, 2) not null 
-					    ,dateoccurrence timestamp not null default current_timestamp
-						,notes text
-						,constraint primary key(id)) default charset = utf8mb4;
+					              ,dateoccurrence timestamp not null default current_timestamp
+						            ,notes text
+						            ,constraint primary key(id)) default charset = utf8mb4;
 
 show tables;
 

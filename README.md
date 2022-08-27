@@ -4,7 +4,12 @@
 # https://www.youtube.com/watch?v=4fWWn2Pe2Mk 
 # último stop 20:00
 
-# notas da modelagem do banco de daddos
+# notas da modelagem do banco de daddos (MYSQL)
+
+SHOW GRANTS FOR 'bigdata'@'127.0.0.1';
+FLUSH PRIVILEGES;
+GRANT ALL PRIVILEGES ON *.* TO 'bigdata'@'127.0.0.1';
+CREATE USER 'bigdata'@'127.0.0.1' IDENTIFIED BY 'if123';
 
 flush privileges;
 
