@@ -14,7 +14,8 @@ select * from tabcardspos;
 
 insert into tabcardspos(id
                        ,nameoperator
-                       ,numboxfisical
+                       ,numboxfisic
+                       ,numboxlogic
                        ,valuepos
                        ,dateoccurrence
                        ,notes) values(default
@@ -56,7 +57,8 @@ insert into tabcardspos(id
 
 create table tabcardspos(id integer not null auto_increment
   						          ,nameoperator varchar(100) not null
-					              ,numboxfisical integer
+					              ,numboxfisic char(4)
+                        ,numboxlogic char(4)
                         ,valuepos decimal(6, 2) not null 
 					              ,dateoccurrence timestamp not null default current_timestamp
 						            ,notes text

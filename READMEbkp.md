@@ -16,7 +16,7 @@ create table tabmanufacturers(id integer not null auto_increment
 							 ,cnpj varchar(18) not null
 							 ,address varchar(100) not null
 							 ,constraint primary key(id)) default charset = utf8mb4;
------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 flush privileges;
 
 alter user 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
@@ -54,18 +54,20 @@ INSERT INTO cardflag(id, nameflag) VALUES(DEFAULT, 'Visa')
 create table cardflag(id INTEGER NOT NULL AUTO_INCREMENT
 					,nameflag VARCHAR(20)
                     ,CONSTRAINT PRIMARY KEY(id));
-
+select * from tabcardspos;
 insert into tabcardspos(id
                        ,nameoperator
                        ,numboxfisic
                        ,numboxlogic
                        ,valuepos
+                       ,id_cardflag
                        ,dateoccurrence
                        ,notes) values(default
                                      ,'Josenilde'
                                      ,7
                                      ,3
                                      ,172.91
+                                     ,4
                                      ,current_timestamp()
                                      ,'Este é apenas um teste de registro das informações'),
                                      (default
@@ -73,6 +75,7 @@ insert into tabcardspos(id
                                      ,20
                                      ,5
                                      ,187.82
+                                     ,2
                                      ,current_timestamp()
                                      ,'Este é apenas um teste de registro das informações'),
                                      (default
@@ -80,6 +83,7 @@ insert into tabcardspos(id
                                      ,5
                                      ,6
                                      ,355.19
+                                     ,3
                                      ,current_timestamp()
                                      ,'Este é apenas um teste de registro das informações'),
                                      (default
@@ -87,6 +91,7 @@ insert into tabcardspos(id
                                      ,14
                                      ,8
                                      ,65.78
+                                     ,1
                                      ,current_timestamp()
                                      ,'Este é apenas um teste de registro das informações'),
                                      (default
@@ -94,16 +99,21 @@ insert into tabcardspos(id
                                      ,10
                                      ,2
                                      ,1373.18
+                                     ,2
                                      ,current_timestamp()
                                      ,'Este é apenas um teste de registro das informações');
+
+drop table tabcardspos;
                                      
 create table tabcardspos(id integer not null auto_increment
   						,nameoperator varchar(50) not null
 						,numboxfisic char(4)
                         ,numboxlogic char(4)
                         ,valuepos decimal(6, 2) not null 
+                        ,id_cardflag int
 					    ,dateoccurrence timestamp not null default current_timestamp
 						,notes text
+                        ,constraint foreign key(id_cardflag) references cardflag(id)
 						,constraint primary key(id)) default charset = utf8mb4;
                         
 ------------ old script -------------------------------------------                                     
