@@ -3,6 +3,7 @@
 //response.render("home");
 //});
 const mysql = require("mysql");
+
 // Connection pool
 const pool = mysql.createPool({
   connectionLimit: 100,
@@ -22,15 +23,23 @@ exports.view = (request, response) => {
     console.log("Connected as ID " + connection.threadId);
 
     // User the connection
-    connection.query("SELECT * FROM tabcardspos", (err, rows) => {
-      // When done with connection, release it
-      connection.release();
-      if (err) {
-        response.render("home", { rows });
-      } else {
-        console.log(err);
+    //connection.query("SELECT * FROM tabcardspos", (err, rows) => {
+    connection.query(
+      "SELECT * FROM tabcardspos WHERE status = 'active'",
+      (err, rows) => {
+        // When done with connection, release it
+        connection.release();
+
+        if (!err) {
+          response.render("home", { rows });
+        } else {
+          console.log(err);
+        }
+        console.log("The data from user table: \n", rows);
       }
-      console.log("The data from user table: \n" + rows);
-    });
+    );
   });
 };
+
+// Find User by Search
+exports.find = (request, response) => {};
