@@ -2,7 +2,7 @@
 # this is simple project in my work
 
 # packages for project in app.js
-# classroom in https://www.youtube.com/watch?v=1aXZQcG2Y6I
+# classroom in https://www.youtube.com/watch?v=1aXZQcG2Y6I      STOP IN VÍDEO 29:50
 # https://raddy.dev/blog/simple-user-management-system-nodejs-express-mysql-handlebars/
 # npm install express dotenv express-handlebars body-parser mysql
 # npm install --save-dev nodemon
