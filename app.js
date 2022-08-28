@@ -2,7 +2,8 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
-const { application, response } = require("express");
+const { application } = require("express");
+//const { application, response } = require("express");
 
 require("dotenv").config();
 
@@ -20,8 +21,13 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 // Templating Engine
-app.engine("hbs", exphbs({ extname: ".hbs" }));
-app.set("view engine", "hbs");
+//app.engine("hbs", exphbs({ extname: ".hbs" })); // version 5.3.4
+//app.set("view engine", "hbs"); // version 5.3.4
+
+// Update to 6.0.0
+const handlebars = exphbs.create({ extname: ".hbs" });
+app.engine(".hbs", handlebars.engine);
+app.set("view engine", ".hbs");
 
 // Router
 app.get("", (request, response) => {
