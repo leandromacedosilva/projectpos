@@ -16,7 +16,7 @@
 
 # database modeling
 create table tabprinters(id integer not null auto_increment
-						,namepri varchar(100) not null
+				            		,namepri varchar(100) not null
                         ,model varchar(50) not null
                         ,seralnumber varchar(50) not null
                         ,id_tabmanufacturers integer not null
@@ -24,7 +24,7 @@ create table tabprinters(id integer not null auto_increment
                         ,id_tabproviders integer not null
                         ,foreign key(id_tabproviders) references tabproviders(id)
 						,constraint primary key(id)) default charset = utf8mb4;
--------------------------------------------------                        
+----------------------------------------------------------------------------------------                        
 create table tabmanufacturers(id integer not null auto_increment
 							 ,nameman varchar(100) not null
 							 ,cnpj varchar(18) not null
@@ -40,6 +40,16 @@ drop table tabcardspos;
 select * from tabcardspos d where d.dateoccurrence like '%2022-08-05%';
 
 select * from tabcardspos;
+
+// selecting with clausules INNER JOIN
+select 
+ d.nameoperator
+,d.numboxfisic
+,d.numboxlogic
+,d.valuepos
+,d.id_tabcardsflags
+,f.nameflag
+from tabcardspos d inner join tabcardsflags f on d.id_tabcardsflags = f.id;
 
 insert into tabcardspos(id
                        ,nameoperator
@@ -130,7 +140,7 @@ create table tabcardspos(id integer not null auto_increment
                         ,valuepos decimal(6, 2) not null 
                         ,id_tabcardsflags int
 					              ,dateoccurrence timestamp not null default current_timestamp
-                        ,status VARCHAR(10) NOT NULL default 'active'
+                        ,stathus VARCHAR(10) NOT NULL DEFAULT 'active'
 						            ,notes text
                         ,constraint foreign key(id_tabcardsflags) references tabcardsflags(id)
 						            ,constraint primary key(id)) default charset = utf8mb4;

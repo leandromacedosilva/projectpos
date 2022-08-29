@@ -27,7 +27,7 @@ exports.view = (request, response) => {
     // User the connection
     //connection.query("SELECT * FROM tabcardspos", (err, rows) => {
     connection.query(
-      "SELECT * FROM tabcardspos WHERE status = 'active'",
+      "SELECT * FROM tabcardspos WHERE stathus = 'active'",
       (err, rows) => {
         /*connection.query(
       "SELECT * FROM tabcardspos WHERE nameoperator LIKE ?",
@@ -56,12 +56,19 @@ exports.find = (request, response) => {
     let searchTerm = request.body.search;
 
     // User the connection
+    // First query
     //connection.query("SELECT * FROM tabcardspos", (err, rows) => {
     /*connection.query(
       "SELECT * FROM tabcardspos WHERE status = 'active'",
-      (err, rows) => {*/
+      (err, rows) => {
+    // Second query
     connection.query(
       "SELECT * FROM tabcardspos WHERE nameoperator LIKE ? OR numboxfisic LIKE ?",
+      ["%" + searchTerm + "%", "%" + searchTerm + "%"],
+      (err, rows) => {*/
+    // Default query connection
+    connection.query(
+      "SELECT d.id, d.nameoperator, d.numboxfisic, d.numboxlogic, d.valuepos, d.id_tabcardsflags, f.nameflag FROM tabcardspos d inner join tabcardsflags f on d.id_tabcardsflags = f.id WHERE nameoperator LIKE ? OR numboxfisic LIKE ?",
       ["%" + searchTerm + "%", "%" + searchTerm + "%"],
       (err, rows) => {
         // When done with connection, release it
