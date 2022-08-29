@@ -61,8 +61,8 @@ exports.find = (request, response) => {
       "SELECT * FROM tabcardspos WHERE status = 'active'",
       (err, rows) => {*/
     connection.query(
-      "SELECT * FROM tabcardspos WHERE nameoperator LIKE ?",
-      ["%" + searchTerm + "%"],
+      "SELECT * FROM tabcardspos WHERE nameoperator LIKE ? OR numboxfisic LIKE ?",
+      ["%" + searchTerm + "%", "%" + searchTerm + "%"],
       (err, rows) => {
         // When done with connection, release it
         connection.release();
