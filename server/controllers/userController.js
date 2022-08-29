@@ -22,11 +22,16 @@ exports.view = (request, response) => {
     if (err) throw err; // Not connected!
     console.log("Connected as ID " + connection.threadId);
 
+    //let searchTerm = request.body.search;
+
     // User the connection
     //connection.query("SELECT * FROM tabcardspos", (err, rows) => {
     connection.query(
       "SELECT * FROM tabcardspos WHERE status = 'active'",
       (err, rows) => {
+        /*connection.query(
+      "SELECT * FROM tabcardspos WHERE nameoperator LIKE ?",
+      (err, rows) => {*/
         // When done with connection, release it
         connection.release();
 
@@ -42,4 +47,33 @@ exports.view = (request, response) => {
 };
 
 // Find User by Search
-exports.find = (request, response) => {};
+exports.find = (request, response) => {
+  // Connectio to DB
+  pool.getConnection((err, connection) => {
+    if (err) throw err; // Not connected!
+    console.log("Connected as ID " + connection.threadId);
+
+    let searchTerm = request.body.search;
+
+    // User the connection
+    //connection.query("SELECT * FROM tabcardspos", (err, rows) => {
+    /*connection.query(
+      "SELECT * FROM tabcardspos WHERE status = 'active'",
+      (err, rows) => {*/
+    connection.query(
+      "SELECT * FROM tabcardspos WHERE nameoperator LIKE ?",
+      ["%" + searchTerm + "%"],
+      (err, rows) => {
+        // When done with connection, release it
+        connection.release();
+
+        if (!err) {
+          response.render("home", { rows });
+        } else {
+          console.log(err);
+        }
+        console.log("The data from user table: \n", rows);
+      }
+    );
+  });
+};

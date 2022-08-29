@@ -1,6 +1,13 @@
 # projectpos
 # this is simple project in my work
-
+#
+#
+#
+#
+#
+#
+#                                                                          01:11:43
+#                                                                          01:08:00  ->  01:11:47
 # packages for project in app.js                                              58:46
 # classroom in https://www.youtube.com/watch?v=1aXZQcG2Y6I      STOP IN VÍDEO 29:50
 # https://raddy.dev/blog/simple-user-management-system-nodejs-express-mysql-handlebars/
@@ -123,6 +130,7 @@ create table tabcardspos(id integer not null auto_increment
                         ,valuepos decimal(6, 2) not null 
                         ,id_tabcardsflags int
 					              ,dateoccurrence timestamp not null default current_timestamp
+                        ,status VARCHAR(10) NOT NULL default 'active'
 						            ,notes text
                         ,constraint foreign key(id_tabcardsflags) references tabcardsflags(id)
 						            ,constraint primary key(id)) default charset = utf8mb4;
