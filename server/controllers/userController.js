@@ -27,7 +27,7 @@ exports.view = (request, response) => {
     // User the connection
     //connection.query("SELECT * FROM tabcardspos", (err, rows) => {
     connection.query(
-      "SELECT * FROM tabcardspos WHERE stathus = 'active'",
+      "SELECT * FROM tabcardspos WHERE status = 'active'",
       (err, rows) => {
         /*connection.query(
       "SELECT * FROM tabcardspos WHERE nameoperator LIKE ?",
@@ -83,4 +83,9 @@ exports.find = (request, response) => {
       }
     );
   });
+};
+
+// Add new informations of cards pos
+exports.form = (request, response) => {
+  response.render("add-inf-cards-pos");
 };
