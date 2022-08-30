@@ -86,6 +86,59 @@ exports.find = (request, response) => {
 };
 
 // Add new informations of cards pos
-exports.form = (request, response) => {
-  response.render("add-inf-cards-pos");
+exports.create = (request, response) => {
+  //response.render("add-inf-cards-pos");
+  const {
+    nameoperator,
+    numboxfisic,
+    numboxlogic,
+    valuepos,
+    id_tabcardsflags,
+    dateoccurrence,
+    status,
+    notes
+  } = request.body;
+  pool.getConnection((err, connection) => {
+    if (err) throw err; // Not connected!
+    console.log("Connected as ID " + connection.threadId);
+
+    let searchTerm = request.body.search;
+
+    // User the connection
+    // First query
+    //connection.query("SELECT * FROM tabcardspos", (err, rows) => {
+    /*connection.query(
+      "SELECT * FROM tabcardspos WHERE status = 'active'",
+      (err, rows) => {
+    // Second query
+    connection.query(
+      "SELECT * FROM tabcardspos WHERE nameoperator LIKE ? OR numboxfisic LIKE ?",
+      ["%" + searchTerm + "%", "%" + searchTerm + "%"],
+      (err, rows) => {*/
+    // Default query connection
+    connection.query(
+      "INSERT INTO tabcardspos SET nameoperator = ?, numboxfisic = ?, numboxlogic = ?, valuepos = ?, id_tabcardsflags = ?, dateoccurrence = ?, status = ?, notes = ?",
+      [
+        nameoperator,
+        numboxfisic,
+        numboxlogic,
+        valuepos,
+        id_tabcardsflags,
+        dateoccurrence,
+        status,
+        notes
+      ],
+      (err, rows) => {
+        // When done with connection, release it
+        connection.release();
+
+        if (!err) {
+          response.render("add-inf-cards-pos");
+        } else {
+          console.log(err);
+        }
+        console.log("The data from user table: \n", rows);
+      }
+    );
+  });
 };
