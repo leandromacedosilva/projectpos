@@ -2,6 +2,7 @@
 //router.get("", (request, response) => {
 //response.render("home");
 //});
+const { request } = require("express");
 const mysql = require("mysql");
 
 // Connection pool
@@ -27,7 +28,7 @@ exports.view = (request, response) => {
     // User the connection
     //connection.query("SELECT * FROM tabcardspos", (err, rows) => {
     connection.query(
-      "SELECT * FROM tabcardspos WHERE status = 'active'",
+      "SELECT * FROM tabcardspos WHERE stathus = 'active'",
       (err, rows) => {
         /*connection.query(
       "SELECT * FROM tabcardspos WHERE nameoperator LIKE ?",
@@ -85,6 +86,10 @@ exports.find = (request, response) => {
   });
 };
 
+exports.form = (request, response) => {
+  response.render("add-inf-cards-pos");
+};
+
 // Add new informations of cards pos
 exports.create = (request, response) => {
   //response.render("add-inf-cards-pos");
@@ -95,7 +100,7 @@ exports.create = (request, response) => {
     valuepos,
     id_tabcardsflags,
     dateoccurrence,
-    status,
+    stathus,
     notes
   } = request.body;
   pool.getConnection((err, connection) => {
@@ -117,7 +122,7 @@ exports.create = (request, response) => {
       (err, rows) => {*/
     // Default query connection
     connection.query(
-      "INSERT INTO tabcardspos SET nameoperator = ?, numboxfisic = ?, numboxlogic = ?, valuepos = ?, id_tabcardsflags = ?, dateoccurrence = ?, status = ?, notes = ?",
+      "INSERT INTO tabcardspos SET nameoperator = ?, numboxfisic = ?, numboxlogic = ?, valuepos = ?, id_tabcardsflags = ?, dateoccurrence = ?, stathus = ?, notes = ?",
       [
         nameoperator,
         numboxfisic,
@@ -125,7 +130,7 @@ exports.create = (request, response) => {
         valuepos,
         id_tabcardsflags,
         dateoccurrence,
-        status,
+        stathus,
         notes
       ],
       (err, rows) => {
@@ -133,7 +138,9 @@ exports.create = (request, response) => {
         connection.release();
 
         if (!err) {
-          response.render("add-inf-cards-pos");
+          response.render("add-inf-cards-pos", {
+            alert: "Information added successfully!"
+          });
         } else {
           console.log(err);
         }

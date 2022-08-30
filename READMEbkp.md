@@ -3,13 +3,13 @@
 #
 #
 #
-#
-#                                                                          01:31:40
-#                                                                          01:23:00
-#                                                                          01:11:43
-#                                                                          01:08:00  ->  01:11:47
-# packages for project in app.js                                              58:46
-# classroom in https://www.youtube.com/watch?v=1aXZQcG2Y6I      STOP IN VÍDEO 29:50
+#                                                                           01:38:09
+#                                                                           01:31:40
+#                                                                           01:23:00
+#                                                                           01:11:43
+#                                                                           01:08:00  ->  01:11:47
+# packages for project in app.js                                            00:58:46
+# classroom in https://www.youtube.com/watch?v=1aXZQcG2Y6I -> STOP IN VÍDEO 00:29:50
 # https://raddy.dev/blog/simple-user-management-system-nodejs-express-mysql-handlebars/
 # npm install express dotenv express-handlebars body-parser mysql
 # npm install --save-dev nodemon
