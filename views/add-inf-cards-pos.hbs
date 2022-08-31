@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylesheet" href="../public/css/style.css" />
+</head>
+
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -5,36 +9,38 @@
       card pos</li>
   </ol>
 </nav>
-{{#if alert}}
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{alert}}
-    <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="alert"
-      aria-label="Close"
-    ></button>
-  </div>
-{{/if}}
-<form
-  action="/addinfocardspos"
-  class="d-flex justify-content-center column g-3 needs-validation"
-  method="post"
-  novalidate
->
-  <div class="col-6">
-    <div class="">
-      <div class="form-floating mb-3">
-        <input
-          type="text"
-          class="form-control"
-          id="floatingInput"
-          placeholder="Name Operator"
-          name="nameoperator"
-        />
-        <label for="floatingInput">Nome do operador de caixa...</label>
-      </div>
-      {{! <div class="form-floating">
+<body>
+  {{#if alert}}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{alert}}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+  {{/if}}
+  <form
+    action="/addinfocardspos"
+    class="d-flex justify-content-center column g-3 needs-validation"
+    method="post"
+    novalidate
+  >
+    <div class="col-6">
+      <div class="">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Name Operator"
+            name="nameoperator"
+            required
+          />
+          <label for="floatingInput">Nome do operador de caixa...</label>
+        </div>
+        {{! <div class="form-floating">
     <input
       type="password"
       class="form-control"
@@ -43,44 +49,47 @@
     />
     <label for="floatingPassword">Password</label>
   </div> }}
-    </div>
-    <div class="">
-      <div class="form-floating mb-3">
-        <input
-          type="text"
-          class="form-control"
-          id="floatingInput"
-          placeholder="Físic Position"
-          name="numboxfisic"
-        />
-        <label for="floatingInput">Número posição física do caixa...</label>
       </div>
-    </div>
-    <div class="">
-      <div class="form-floating mb-3">
-        <input
-          type="text"
-          class="form-control"
-          id="floatingInput"
-          placeholder="Logic Position"
-          name="numboxlogic"
-        />
-        <label for="floatingInput">Número posição lógica do caixa...</label>
+      <div class="">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Físic Position"
+            name="numboxfisic"
+            required
+          />
+          <label for="floatingInput">Número posição física do caixa...</label>
+        </div>
       </div>
-    </div>
-    <div class="">
-      <div class="form-floating mb-3">
-        <input
-          type="text"
-          class="form-control"
-          id="floatingInput"
-          placeholder="Values"
-          name="valuepos"
-        />
-        <label for="floatingInput">Valor pago...</label>
+      <div class="">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Logic Position"
+            name="numboxlogic"
+            required
+          />
+          <label for="floatingInput">Número posição lógica do caixa...</label>
+        </div>
       </div>
-    </div>
-    {{! <div class="col-6">
+      <div class="">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Values"
+            name="valuepos"
+            required
+          />
+          <label for="floatingInput">Valor pago...</label>
+        </div>
+      </div>
+      {{! <div class="col-6">
     <div class="form-floating mb-3">
       <input
         type="text"
@@ -92,60 +101,75 @@
       <label for="floatingInput">Nome do operador de caixa...</label>
     </div>
   </div> }}
-    <div class="">
-      <div class="form-floating mb-3">
-        <input
-          type="text"
-          class="form-control"
-          id="floatingInput"
-          placeholder="Cod Bandeira"
-          name="id_tabcardsflags"
-        />
-        <label for="floatingInput">Insira o código da bandeira do cartão...</label>
+      <div class="">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Cod Bandeira"
+            name="cardpos"
+            required
+          />
+          <label for="floatingInput">Insira tipo e bandeira do cartão...</label>
+        </div>
       </div>
-    </div>
-    <div class="">
-      <div class="form-floating mb-3">
-        <input
-          type="date"
-          class="form-control"
-          id="floatingInput"
-          placeholder="Date Occurrence"
-          name="dateoccurrence"
-        />
-        <label for="floatingInput">Data...</label>
+      <div class="">
+        <div class="form-floating mb-3">
+          <input
+            type="date"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Date Occurrence"
+            name="dateregister"
+            required
+          />
+          <label for="floatingInput">Data...</label>
+        </div>
       </div>
-    </div>
+      <div class="">
+        <div class="form-floating mb-3">
+          <input
+            type="date"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Date Occurrence"
+            name="dateoccurrence"
+            required
+          />
+          <label for="floatingInput">Data do registro...</label>
+        </div>
+      </div>
+      <div class="">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Status"
+            name="statusreg"
+            style="height: 100px"
+          />
+          <label for="floatingInput">Informe o STATUS do registro...</label>
+        </div>
+      </div>
 
-    <div class="">
-      <div class="form-floating mb-3">
-        <input
-          type="text"
-          class="form-control"
-          id="floatingInput"
-          placeholder="Status"
-          name="stathus"
-          style="height: 100px"
-        />
-        <label for="floatingInput">Informe o STATUS do registro...</label>
+      <div class="">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Observacoes"
+            name="notes"
+            style="height: 100px"
+          />
+          <label for="floatingInput">Observações...</label>
+        </div>
+      </div>
+      <div class="col-4 d-grid">
+        <button type="submit" class="btn btn-primary">Gravar</button>
       </div>
     </div>
-
-    <div class="">
-      <div class="form-floating mb-3">
-        <input
-          type="text"
-          class="form-control"
-          id="floatingInput"
-          placeholder="Observacoes"
-          name="notes"
-          style="height: 100px"
-        />
-        <label for="floatingInput">Observações...</label>
-      </div>
-    </div>
-    <div class="col-4 d-grid">
-      <button type="submit" class="btn btn-primary">Gravar</button>
-    </div>
-  </div>
-</form>
+  </form>
+</body>

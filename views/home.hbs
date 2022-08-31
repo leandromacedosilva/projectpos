@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-6"><h1>Users</h1></div>
-  <div class="col-6 d-flex justify-content-end">
+  <div class="col-7"><h1>Users</h1></div>
+  <div class="col-12 pb-2 d-flex justify-content-end">
     <a
       href="/addinfocardspos"
       type="button"
@@ -17,10 +17,9 @@
       <th scope="col">Núm. Caixa Físic</th>
       <th scope="col">Núm. Caixa Logic</th>
       <th scope="col">Valor</th>
-      <th scope="col">Cód. Bandeira</th>
-      {{! <th scope="col">Data Registro</th> }}
-      <th scope="col">Nome Bandeira</th>
-      {{! <th scope="col">Observações</th> }}
+      <th scope="col">Cartão</th>
+      <th scope="col">Data Registro</th>
+      <th scope="col">Observações</th>
       <th scope="col" class="text-end">Action</th>
     </tr>
   </thead>
@@ -34,10 +33,10 @@
         <td>{{this.numboxfisic}}</td>
         <td>{{this.numboxlogic}}</td>
         <td>{{this.valuepos}}</td>
-        <td>{{this.id_tabcardsflags}}</td>
-        <td>{{this.nameflag}}</td>
-        {{!-- <td>{{this.dateoccurrence}}</td> --}}
-        {{!-- <td>{{this.notes}}</td> --}}
+        <td>{{this.cardpos}}</td>
+        <td>{{this.dateregister}}</td>
+
+        <td>{{this.notes}}</td>
         {{! <td>Otto</td> }}
         <td class="text-end">
           <a href="#" type="button" class="btn btn-light btn-small"><i

@@ -87,3 +87,17 @@ drop database dberpcontrol;
 show databases;
 
 create database dberpcontrol default character set utf8mb4 default COLLATE utf8mb4_general_ci; 
+
+## regras básicas CSS, responsividade 
+.produto-container {
+  display: flex;
+  width: 100%; 
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 768px) {
+  .produto-container {
+    width: 100%;
+    flex-direction: column;
+  }
+}
