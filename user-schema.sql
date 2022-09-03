@@ -27,12 +27,12 @@ INSERT INTO  tbcardspos(id
              ,dateregister 
 					   ,dateoccurrence
              ,statusreg 
-					   ,notes) VALUES(DEFAULT,'Maria Benedita','10','018',23.65,'Visa Crédito','2022-08-30', CURRENT_TIMESTAMP(),'Ativo','')
-                          ,(DEFAULT,'Nayara Thomas','20','227',176.56,'Visa Crédito','2022-08-30', CURRENT_TIMESTAMP(),'Ativo','')
-                          ,(DEFAULT,'Herlaraissa','17','008',583.61,'Credishop','2022-08-30', CURRENT_TIMESTAMP(),'Ativo','')
-                          ,(DEFAULT,'Marisangela','006','002',230.67,'Elo Débito','2022-08-30', CURRENT_TIMESTAMP(),'Ativo','')
-                          ,(DEFAULT,'Ezeriel','23','001',736.83,'Mastercard Crédito','2022-08-30', CURRENT_TIMESTAMP(),'Ativo','')
-                          ,(DEFAULT,'Jhon','001','13',627.83,'Trcard Crédito','2022-08-30', CURRENT_TIMESTAMP(),'Ativo','');
+					   ,notes) VALUES(DEFAULT,'Maria Benedita','10','018',23.65,'Visa Crédito','2022-08-30', DEFAULT, DEFAULT,'')
+                          ,(DEFAULT,'Nayara Thomas','20','227',176.56,'Visa Crédito','2022-08-30', DEFAULT, DEFAULT,'')
+                          ,(DEFAULT,'Herlaraissa','17','008',583.61,'Credishop','2022-08-30', DEFAULT, DEFAULT,'')
+                          ,(DEFAULT,'Marisangela','006','002',230.67,'Elo Débito','2022-08-30', DEFAULT, DEFAULT,'')
+                          ,(DEFAULT,'Ezeriel','23','001',736.83,'Mastercard Crédito','2022-08-30', DEFAULT, DEFAULT,'')
+                          ,(DEFAULT,'Jhon','001','13',627.83,'Trcard Crédito','2022-08-30', DEFAULT, DEFAULT,'');
 --tabela sem chave estrangeira para as bandeiras de cartões
 --modelada em 30/08/2022
 CREATE TABLE tbcardspos(id INTEGER NOT NULL AUTO_INCREMENT
@@ -42,8 +42,8 @@ CREATE TABLE tbcardspos(id INTEGER NOT NULL AUTO_INCREMENT
                        ,valuepos DECIMAL(6, 2) NOT NULL 
                        ,cardpos VARCHAR(50)
                        ,dateregister DATE NOT NULL
-					             ,dateoccurrence TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-                       ,statusreg VARCHAR(10) NOT NULL DEFAULT "active"
+					             ,dateoccurrence TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP()
+                       ,statusreg VARCHAR(10) NOT NULL DEFAULT 'active'
 						           ,notes TEXT
 						           ,CONSTRAINT PRIMARY KEY(id)) DEFAULT CHARSET = utf8mb4;
 ------------------------------------------------------------------------------------------------                       

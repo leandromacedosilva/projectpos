@@ -1,12 +1,10 @@
-<head>
-  <link rel="stylesheet" href="../public/css/style.css" />
-</head>
-
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">New register inform
-      card pos</li>
+    <li class="breadcrumb-item">Voltar para a <a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><strong
+        style="font-size: 2rem;"
+      >
+        Novo registro de cartão POS</strong></li>
   </ol>
 </nav>
 <body>
@@ -118,16 +116,17 @@
         <div class="form-floating mb-3">
           <input
             type="date"
+            value="03-09-2022"
             class="form-control"
             id="floatingInput"
             placeholder="Date Occurrence"
             name="dateregister"
             required
           />
-          <label for="floatingInput">Data...</label>
+          <label for="floatingInput">Data do pagamento...</label>
         </div>
       </div>
-      <div class="">
+      {{! <div class="">
         <div class="form-floating mb-3">
           <input
             type="date"
@@ -139,8 +138,8 @@
           />
           <label for="floatingInput">Data do registro...</label>
         </div>
-      </div>
-      <div class="">
+      </div> }}
+      {{! <div class="">
         <div class="form-floating mb-3">
           <input
             type="text"
@@ -152,7 +151,7 @@
           />
           <label for="floatingInput">Informe o STATUS do registro...</label>
         </div>
-      </div>
+      </div> }}
 
       <div class="">
         <div class="form-floating mb-3">

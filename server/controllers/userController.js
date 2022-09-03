@@ -28,7 +28,7 @@ exports.view = (request, response) => {
     // User the connection
     //connection.query("SELECT * FROM tabcardspos", (err, rows) => {
     connection.query(
-      "SELECT * FROM tbcardspos WHERE statusreg = 'Ativo'",
+      "SELECT * FROM tbcardspos WHERE statusreg = 'active'",
       (err, rows) => {
         /*connection.query(
       "SELECT * FROM tabcardspos WHERE nameoperator LIKE ?",
@@ -140,7 +140,7 @@ exports.create = (request, response) => {
       (err, rows) => {*/
     // Default query connection
     connection.query(
-      "INSERT INTO tbcardspos SET nameoperator = ?, numboxfisic = ?, numboxlogic = ?, valuepos = ?, cardpos = ?, dateregister = ?, dateoccurrence = ?, statusreg = ?, notes = ?",
+      "INSERT INTO tbcardspos SET nameoperator = ?, numboxfisic = ?, numboxlogic = ?, valuepos = ?, cardpos = ?, dateregister = ?, notes = ?",
       [
         nameoperator,
         numboxfisic,
@@ -148,8 +148,6 @@ exports.create = (request, response) => {
         valuepos,
         cardpos,
         dateregister,
-        dateoccurrence,
-        statusreg,
         notes
       ],
       (err, rows) => {
@@ -158,7 +156,7 @@ exports.create = (request, response) => {
 
         if (!err) {
           response.render("add-inf-cards-pos", {
-            alert: "Information added successfully!"
+            alert: "Informações registradas com successo!"
           });
         } else {
           console.log(err);
