@@ -1,3 +1,19 @@
+/* Google Fonts - Link Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;1,200;1,400&display=swap');
+
+/*
+ *CSS rules to specify families
+ *font-family: 'Kaushan Script', cursive;
+ *font-family: 'Open Sans', sans-serif;
+ *font-family: 'Poppins', sans-serif;
+ */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
 
 :root {
   --hue: 51;
@@ -7,5 +23,137 @@
 body{
   background-color: var(--color-body);
   /*background-image: linear-gradient(to right, hsl() hsl());*/
+  display: flex;
+  justify-content: center;
 }
 
+.container {
+  margin-top: 50px;
+  width: 900px;
+  background: #FFFFFF;
+  background: linear-gradient(44deg, #fff 62%, #8c1aff 62%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 50px;
+  border-radius: 3px;
+  position: relative;
+}
+
+.welcome{
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  color: #fff;
+  width: 220px;
+  text-align: right;
+}
+
+.welcome h1{
+  font-size: 50px;
+}
+
+form{
+  width: 420px;
+}
+
+.header h2{
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.header p{
+  font-size: 14px;
+  margin-bottom: 35px;
+}
+
+form a{
+  color: #8c1aff;
+  text-decoration: none;
+}
+
+form a:hover{
+  color: #8000ff;
+  text-decoration: underline;
+}
+
+input[type="text"],
+input[type="password"]{
+  width: 100%;
+  margin-bottom: 25px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  padding: 14px 8px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus{
+  border-color: #a6a6a6;
+}
+
+.checkbox{
+  font-size: 14px;
+}
+
+.forgot-pass a{
+  font-size: 12px;
+  float: right;
+}
+
+.input-group{
+  margin-bottom: 35px;
+}
+
+.btn{
+  text-align: right;
+  margin-bottom: 50px;
+}
+
+.btn button{
+  padding: 12px 36px;
+  background: #8c1aff;
+  color: #fff;
+  border: none;
+  outline: none;
+  opacity: 1;
+  font-size: 18px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn button:hover{
+  opacity: 0.8;
+}
+
+.social span{
+  font-size: 14px;
+}
+
+.social button{
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.social button a{
+  width: 90px;
+  padding: 8px 30px;
+  color: #fff;
+  border-radius: 30px;
+  display: block;
+}
+
+.social button .facebook{
+  background: #4267b2;
+  margin-left: 30px;
+  margin-right: 5px;
+}
+
+.social button .twitter{
+  background: #00acee;
+}
+
+.social button:hover{
+  opacity: 0.9;
+}
+/*11:09*/
