@@ -87,8 +87,13 @@ exports.find = (request, response) => {
 };*/
     // Default query connection 2
     connection.query(
-      "SELECT d.id, d.nameoperator, d.numboxfisic, d.numboxlogic, d.valuepos, d.cardpos, d.dateregister, d.statusreg FROM tbcardspos d WHERE nameoperator LIKE ? OR numboxfisic LIKE ?",
-      ["%" + searchTerm + "%", "%" + searchTerm + "%"],
+      "SELECT d.id, d.nameoperator, d.numboxfisic, d.numboxlogic, d.valuepos, d.cardpos, d.dateregister, d.statusreg FROM tbcardspos d WHERE d.nameoperator LIKE ? OR d.numboxfisic LIKE ? OR d.dateregister LIKE ? OR d.valuepos LIKE ?",
+      [
+        "%" + searchTerm + "%",
+        "%" + searchTerm + "%",
+        "%" + searchTerm + "%",
+        "%" + searchTerm + "%"
+      ],
       (err, rows) => {
         // When done with connection, release it
         connection.release();
