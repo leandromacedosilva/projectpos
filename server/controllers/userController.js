@@ -87,7 +87,7 @@ exports.find = (request, response) => {
 };*/
     // Default query connection 2
     connection.query(
-      "SELECT id, nameoperator, numboxfisic, numboxlogic, valuepos, cardpos, date_format(dateregister,'%d/%m/%y'), statusreg FROM tbcardspos WHERE nameoperator LIKE ? OR numboxfisic LIKE ? OR date_format(dateregister,'%d/%m/%y') LIKE ? OR valuepos LIKE ?",
+      "SELECT id, nameoperator, numboxfisic, numboxlogic, valuepos, cardpos, dateregister, statusreg FROM tbcardspos WHERE nameoperator LIKE ? OR numboxfisic LIKE ? OR dateregister LIKE ? OR valuepos LIKE ?",
       [
         "%" + searchTerm + "%",
         "%" + searchTerm + "%",
@@ -108,6 +108,7 @@ exports.find = (request, response) => {
     );
   });
 };
+
 exports.form = (request, response) => {
   response.render("add-inf-cards-pos");
 };
