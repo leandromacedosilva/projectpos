@@ -87,7 +87,7 @@ exports.find = (request, response) => {
 };*/
     // Default query connection 2
     connection.query(
-      "SELECT d.id, d.nameoperator, d.numboxfisic, d.numboxlogic, d.valuepos, d.cardpos, d.dateregister, d.statusreg FROM tbcardspos d WHERE d.nameoperator LIKE ? OR d.numboxfisic LIKE ? OR d.dateregister LIKE ? OR d.valuepos LIKE ?",
+      "SELECT id, nameoperator, numboxfisic, numboxlogic, valuepos, cardpos, dateregister, statusreg FROM tbcardspos WHERE nameoperator LIKE ? OR numboxfisic LIKE ? OR dateregister LIKE ? OR valuepos LIKE ?",
       [
         "%" + searchTerm + "%",
         "%" + searchTerm + "%",
@@ -108,6 +108,7 @@ exports.find = (request, response) => {
     );
   });
 };
+
 exports.form = (request, response) => {
   response.render("add-inf-cards-pos");
 };
@@ -122,8 +123,6 @@ exports.create = (request, response) => {
     valuepos,
     cardpos,
     dateregister,
-    dateoccurrence,
-    statusreg,
     notes
   } = request.body;
   pool.getConnection((err, connection) => {

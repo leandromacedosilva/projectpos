@@ -1,2 +1,4 @@
-const dataIso = new Date();
-console.log(dataIso.getUTCHours());
+const moment = require("moment");
+
+const date = moment().format("dd/mm/yyyy hh:mm:ss");
+console.log(date);

@@ -126,6 +126,7 @@
           <label for="floatingInput">Data do pagamento...</label>
         </div>
       </div>
+
       {{! <div class="">
         <div class="form-floating mb-3">
           <input
@@ -153,7 +154,7 @@
         </div>
       </div> }}
 
-      <div class="">
+      {{! <div class="">
         <div class="form-floating mb-3">
           <input
             type="text"
@@ -165,7 +166,22 @@
           />
           <label for="floatingInput">Observações...</label>
         </div>
+      </div> }}
+
+      <div class="col-12">
+        <div class="form-floating mb-3">
+          <textarea
+            class="form-control"
+            id="notes"
+            name="notes"
+            cols="30"
+            rows="10"
+            style="height:100px"
+          >{{this.notes}}</textarea>
+          <label for="floatingInput">Observações...</label>
+        </div>
       </div>
+
       <div class="col-4 d-grid">
         <button type="submit" class="btn btn-primary">Gravar</button>
       </div>
