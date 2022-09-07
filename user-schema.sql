@@ -34,6 +34,8 @@ INSERT INTO  tbcardspos(id
                           ,(DEFAULT,'Ezeriel','23','001',736.83,'Mastercard Crédito','2022-08-30', DEFAULT, DEFAULT,'')
                           ,(DEFAULT,'Jhon','001','13',627.83,'Trcard Crédito','2022-08-30', DEFAULT, DEFAULT,'');
 --tabela sem chave estrangeira para as bandeiras de cartões
+--esta é atualmente a tabela principal do sistema de registro POS
+--foi colocada em produção na data 06/09/2022. 
 --modelada em 30/08/2022
 CREATE TABLE tbcardspos(id INTEGER NOT NULL AUTO_INCREMENT
   						         ,nameoperator VARCHAR(50) NOT NULL
