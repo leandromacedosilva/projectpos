@@ -16,6 +16,68 @@ CREATE TABLE tbcardspos(id INTEGER NOT NULL AUTO_INCREMENT
                        ,CONSTRAINT FOREIGN KEY(id_tbcardsflags) REFERENCES tbcardsflags(id)
 						           ,CONSTRAINT PRIMARY KEY(id)) DEFAULT CHARSET = utf8mb4;
 -------------------------------------------------------------------------------------------------
+--AQUI É REGISTRADO AS INFORMAÇÕES DAS NOVAS TABELAS
+--table
+CREATE TABLE tbhardwareout(id INTEGER NOT NULL AUTO_INCREMENT
+                          ,desccription VARCHAR(50) NOT NULL
+                          ,deptoorig
+                          ,deptodest) DEFAULT CHARSET = utf8mb4;
+
+                       
+CREATE TABLE tbdepartment() DEFAULT CHARSET = utf8mb4;
+                       
+SELECT * FROM tbhardware; 
+
+INSERT INTO tbhardware(id
+                      ,description
+                      ,model
+                      ,serialnumber
+                      ,qt
+                      ,id_provider
+                      ,dateregister) VALUES(DEFAULT, 'Epson LCD Projector', 'H552A', 'TUJK3X00099', 1, 6, CURRENT_TIMESTAMP())
+                                          ,(DEFAULT, 'Epson LCD Projector', 'H369A', 'NE6K1302403', 1, 6, CURRENT_TIMESTAMP());
+
+CREATE TABLE tbhardware(id INTEGER NOT NULL AUTO_INCREMENT
+                       ,description VARCHAR(50) NOT NULL
+                       ,model VARCHAR(20) NOT NULL
+                       ,serialnumber VARCHAR(30) NOT NULL
+                       ,qt INT NOT NULL
+                       ,id_provider INT NOT NULL
+                       ,dateregister TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP()
+                       ,CONSTRAINT PRIMARY KEY(ID)
+                       ,CONSTRAINT FOREIGN KEY(id_provider) REFERENCES tbprovider(id))DEFAULT CHARSET = utf8mb4;
+
+SELECT * FROM tbprovider;
+
+INSERT INTO tbprovider(id
+                      ,name
+                      ,cnpj
+                      ,ie
+                      ,dateregister TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP())
+                      VALUES(DEFAULT, 'Epson S/A', '11.111.111/1111-16', '');
+
+INSERT INTO tbprovider(id
+                      ,name
+                      ,cnpj
+                      ,ie
+                      ,dateregister) 
+                      VALUES(DEFAULT, 'FORNECEDOR 1', '11.111.111/1111-11', '', CURRENT_TIMESTAMP())
+                           ,(DEFAULT, 'FORNECEDOR 2', '11.111.111/1111-12', '', CURRENT_TIMESTAMP())
+                           ,(DEFAULT, 'FORNECEDOR 3', '11.111.111/1111-13', '', CURRENT_TIMESTAMP())
+                           ,(DEFAULT, 'FORNECEDOR 4', '11.111.111/1111-14', '', CURRENT_TIMESTAMP())
+                           ,(DEFAULT, 'FORNECEDOR 5', '11.111.111/1111-15', '', CURRENT_TIMESTAMP())
+                           ,(DEFAULT, 'Epson S/A', '11.111.111/1111-16', '', CURRENT_TIMESTAMP());
+                          
+                          
+CREATE TABLE tbprovider(id INTEGER NOT NULL AUTO_INCREMENT
+                       ,name VARCHAR(50) NOT NULL
+                       ,cnpj VARCHAR(18) NOT NULL
+                       ,ie VARCHAR(12)
+                       ,dateregister TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP()
+                       ,CONSTRAINT PRIMARY KEY(id))DEFAULT CHARSET = utf8mb4;
+                      
+SELECT * FROM tbcardspos;                       
+                
 --populando table TBCARDSPOS, com informações
 --modelada em 30/08/2022
 INSERT INTO  tbcardspos(id 

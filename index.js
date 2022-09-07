@@ -9,7 +9,7 @@ let mysqlConnection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "password",
-  database: "dberpcontrol"
+  database: "erpcontroldb"
 });
 
 mysqlConnection.connect(err => {
