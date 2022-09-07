@@ -48,4 +48,7 @@ CREATE TABLE tbcardspos(id INTEGER NOT NULL AUTO_INCREMENT
                        ,statusreg VARCHAR(10) NOT NULL DEFAULT 'active'
 						           ,notes TEXT
 						           ,CONSTRAINT PRIMARY KEY(id)) DEFAULT CHARSET = utf8mb4;
+------------------------------------------------------------------------------------------------
+
+create database erpcontroldb default character set utf8mb4 default COLLATE utf8mb4_general_ci;
 ------------------------------------------------------------------------------------------------                       
