@@ -156,12 +156,12 @@ create table tabcardspos(id integer not null auto_increment
 
 show tables;
 
-use dberpcontrol;
+use erpcontroldb;
 
 drop database d;
 
-drop database dberpcontrol;
+drop database erpcontroldb;
 
 show databases;
 
-create database dberpcontrol default character set utf8mb4 default COLLATE utf8mb4_general_ci;
+create database erpcontroldb default character set utf8mb4 default COLLATE utf8mb4_general_ci;
