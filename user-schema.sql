@@ -25,6 +25,11 @@ CREATE TABLE tbhardwareout(id INTEGER NOT NULL AUTO_INCREMENT
 
                        
 CREATE TABLE tbdepartment() DEFAULT CHARSET = utf8mb4;
+
+CREATE TABLE tbdepartment(id INTEGER NOT NULL AUTO_INCREMENT
+                         ,description VARCHAR(30) NOT NULL
+                         ,dateregister TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP()
+                         ,CONSTRAINT PRIMARY KEY(id)) DEFAULT CHARSET = utf8mb4;
                        
 SELECT * FROM tbhardware; 
 
