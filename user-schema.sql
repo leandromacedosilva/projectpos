@@ -1,3 +1,6 @@
+-- /*parei aos 01:39:20*/ 
+-- https://www.youtube.com/watch?v=1aXZQcG2Y6I&t=5504s
+
 --remodelagem da base de dadods DBERPCONTROL 
 ---remodelagem da tabela tbcardspos
 CREATE TABLE tbcardsflags(id INTEGER NOT NULL AUTO_INCREMENT

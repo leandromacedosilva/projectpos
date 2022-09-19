@@ -170,3 +170,8 @@ exports.create = (request, response) => {
     );
   });
 };
+
+// edit user in system
+exports.edit = (request, response) => {
+  response.render("adit-user");
+};

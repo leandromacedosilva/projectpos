@@ -170,15 +170,24 @@
 
       <div class="col-12">
         <div class="form-floating mb-3">
-          <textarea
+          {{!-- <textarea
             class="form-control"
             id="notes"
             name="notes"
             cols="30"
             rows="10"
             style="height:100px"
+          >{{this.notes}}</textarea> --}}
+          {{! <label for="floatingInput">Observações...</label> }}
+          <textarea
+            class="form-control"
+            placeholder="Por favor, inclua uma observação aqui, quando preciso!"
+            name="notes"
+            id="notes"
+            style="height: 100px"
           >{{this.notes}}</textarea>
-          <label for="floatingInput">Observações...</label>
+          <label for="notes">Por favor, inclua uma observação aqui, quando
+            preciso!</label>
         </div>
       </div>
 
